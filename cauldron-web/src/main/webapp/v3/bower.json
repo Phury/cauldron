@@ -1,0 +1,22 @@
+{
+  "name": "cauldron",
+  "version": "0.3",
+  "authors": [
+    "Phury <phvdvelde@gmail.com>"
+  ],
+  "description": "cauldron angular app",
+  "main": "index.htm",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ratchet": "twbs/ratchet#~2.0.2",
+    "underscore": "~1.8.3",
+    "angular": "~1.3.15"
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cauldron</title>
+    <link rel="stylesheet" type="text/css" href="cauldron.css">
+</head>
+<body>
+	<div id="cauldron-app" class="app">
+		<div id="s1" class="screen">
+			<div id="expense-action" class="stitle shadow">
+			</div>
+			<div id="expense-list" class="scontent">
+				
+			</div>
+		</div>
+		<div id="s2" class="screen">
+			<div class="stitle shadow">
+				<h1>Add Expense</h1>
+				<a href="#" id="list-transactions" class="right">cancel</a>
+			</div>
+			<div class="scontent">
+				<form id="add-transaction">
+					<ul>
+						<li>
+							<label for="amount">amount</label>
+							<input type="number" id="amount" name="amount" placeholder="amount"  pattern="[0-9]+([\.|,][0-9]+)?" step="0.01" />
+						</li>
+						<li>
+							<input type="radio" name="type" value="expense" />expense
+							<input type="radio" name="type" value="income" />income
+						</li>
+						<li>
+							<label for="date">date</label>
+							<!-- <input type="date" id="date" name="date" placeholder="date" /> -->
+							<input type="text" id="date" name="date" placeholder="dd-MM-yyyy" />
+						</li>
+						<li>
+							<label for="categories">categories</label>
+							<input type="text" id="categories" name="categories" placeholder="categories" />
+						</li>
+						<li>
+							<label for="payee">payee</label>
+							<input type="text" id="payee" name="payee" placeholder="payee" />
+						</li>
+						<li>
+							<label for="account">account</label>
+							<select id="account" name="account">
+								<option value="account 1">credit card</option>
+								<option value="account 2">debit card</option>
+							</select>
+						</li>
+						<li>
+							<input type="submit" name="Submit" value="submit" class="" />
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+    <script src="jquery-1.9.1.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
+    <script src="http://ajax.cdnjs.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
+    <script id="actionTemplate" type="text/template">
+		<h1><%= action.title %></h1>
+		<a href="#" id="<%= action.id %>" class="right"><%= action.name %></a>
+	</script>
+    <script id="expenseTemplate" type="text/template">
+		<h3 class="expense">total <span><%= _.reduce(expenses, function(memo, expense){ return memo + expense.money.amount; }, 0) / 100 %>CAD</span></h3>
+		<ul> 
+    		<% _.each(expenses, function(expense)  { %>
+      			<li class="expense <% if (expense.selected) {%>selected<%} %>" data-id="<%= expense.id %>">
+					<%= expense.entryDate %>
+					<span><%= expense.money.amount / 100 %><%= expense.money.currency %></span>
+				</li>
+    		<% }); %>
+  		</ul>
+	</script>
+	<script src="cauldron.js"></script>
+</body>
+</html>

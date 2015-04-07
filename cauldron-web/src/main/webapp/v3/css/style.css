@@ -1,0 +1,6 @@
+body { padding-top: 70px; }
+
+.modal-dialog.large {
+    width: 100%; /* respsonsive width */
+    /*margin-left:-40%; /* width/2) */ 
+}

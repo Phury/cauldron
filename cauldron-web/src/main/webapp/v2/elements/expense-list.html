@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../services/expense-service.html">
+<link rel="import" href="expense-card.html">
+
+<polymer-element name="expense-list">
+  <template>
+  <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    expense-card {
+      margin: 0.5em 0.5em 0.7em 0.5em;
+    }
+    </style>
+
+    <expense-service id="service" expenses="{{expenses}}">
+    </expense-service>
+    
+    <template repeat="{{expense in expenses}}">
+    	<expense-card>
+	    	<h3>{{ expense.label }}</h3>
+	    	<p><template repeat="{{category in expense.categories}}"><span type="category">{{category.name}}</span>&nbsp;</template></p>
+	    	<span type="amount">{{ expense.money.currency }} {{ expense.money.amount }}</span>
+    	</expense-card>
+      </template>
+  </template>
+  <script>
+  Polymer({});
+  </script>
+</polymer-element>

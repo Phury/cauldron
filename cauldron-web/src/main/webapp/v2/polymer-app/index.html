@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+	<script src="../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+	<link rel="import" href="../bower_components/core-scaffold/core-scaffold.html">
+	<link rel="import" href="../elements/expense-list.html">
+	<link rel="import" href="../css/style.css">
+</head>
+<body>
+	<core-scaffold>
+		<core-header-panel navigation flex mode="seamed">
+			<core-toolbar>Application</core-toolbar>
+			<core-menu theme="core-light-theme">
+				<core-item icon="settings" label="item1">Expense</core-item>
+				<core-item icon="settings" label="item2">Income</core-item>
+				<core-item icon="settings" label="item3">Budget</core-item>
+				<core-item icon="settings" label="item4">Settings</core-item>
+			</core-menu>
+		</core-header-panel>
+		<div tool>Expense</div>
+		<expense-list></expense-list>
+	</core-scaffold>
+</body>
+</html>
